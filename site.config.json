@@ -7,15 +7,15 @@
   "description": "Bar com sinuca e futebol no Granada, em Uberlândia/MG: 6 mesas de sinuca, 4 TVs, porções, lanches e bebidas. Há 19 anos.",
   "cnpj": "14.227.815/0001-12",
   "phone": {
-    "e164": "+55-34-99891-2704",
-    "display": "(34) 99891-2704"
+    "e164": "+55-34-99102-8152",
+    "display": "(34) 99102-8152"
   },
   "whatsapp": {
-    "number": "5534998912704",
+    "number": "5534991028152",
     "messages": {
-      "default": "Oi, Taberna! Vi o site e quero ir hoje. Tem mesa de sinuca livre?",
-      "menu": "Oi, Taberna! Vi o cardápio no site e quero fazer um pedido.",
-      "games": "Oi, Taberna! Quais jogos vão passar hoje?"
+      "default": "Fala, Magrão! Vi o site do Taberna e tô pensando em colar aí hoje. Tem mesa de sinuca livre?",
+      "menu": "Fala, Magrão! Vi o cardápio no site e quero fazer um pedido.",
+      "games": "Fala, Magrão! Quais jogos vão passar aí hoje?"
     }
   },
   "instagram": "https://www.instagram.com/tabernasnookerbar/",
