@@ -1,0 +1,52 @@
+<!-- ============ Como chegar: endereço, horário, informações práticas, mapa e perguntas ============ -->
+<section class="section visit" id="como-chegar" aria-labelledby="como-chegar-titulo">
+  <div class="container grid-12 visit__grid">
+    <div class="visit__info" data-reveal>
+      <div class="section-head tone-blue">
+        <span class="eyebrow">Como chegar</span>
+        <h2 id="como-chegar-titulo">{{site.address.street}}</h2>
+        <p class="lead">Granada · Uberlândia/MG · CEP {{site.address.postalCode}}</p>
+      </div>
+
+      <a class="btn btn--ghost" href="{{mapsDirectionsUrl}}" target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use href="#i-pin" /></svg>
+        Traçar rota
+      </a>
+
+      <div class="visit__block">
+        <h3>Horário</h3>
+        {{> hoursTable}}
+      </div>
+
+      <div class="visit__block">
+        <h3>Bom saber</h3>
+        <ul class="visit__facts" role="list">
+          {{> amenitiesList}}
+          <li>Pagamento: {{paymentsText}}</li>
+        </ul>
+      </div>
+
+      <p class="visit__games">
+        Jogo de hoje? Sai nos
+        <a href="{{site.instagramStories}}" target="_blank" rel="noopener">stories do @tabernasnookerbar</a>.
+      </p>
+    </div>
+
+    <!-- Mapa estático; o iframe do Google só carrega no clique (js/components/map-embed.js) -->
+    <div class="map-card" data-map>
+      <div class="map-card__pin" aria-hidden="true"><i class="ball tone-red"></i><b>{{site.name}}</b></div>
+      <div class="map-card__actions">
+        <button class="btn btn--ghost btn--ghost-solid" type="button" data-map-load>Carregar mapa</button>
+        <a class="btn" href="{{mapsSearchUrl}}" target="_blank" rel="noopener">Abrir no Google Maps</a>
+      </div>
+    </div>
+
+    <!-- Perguntas: vêm de src/data/faq.json, que também gera o JSON-LD FAQPage -->
+    <div class="visit__faq" id="perguntas">
+      <h3 class="visit__faq-title">Perguntas</h3>
+      <div class="faq__list" data-faq>
+        {{> faqItems}}
+      </div>
+    </div>
+  </div>
+</section>

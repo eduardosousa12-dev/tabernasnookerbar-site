@@ -1,0 +1,47 @@
+<!-- ============ Rodapé ============ -->
+<footer class="site-footer">
+  <div class="container grid-12 site-footer__grid">
+    <div class="site-footer__brand">
+      <img
+        src="assets/img/logo-taberna-snooker-bar.webp"
+        width="640"
+        height="295"
+        alt="{{site.name}}, {{site.slogan}}"
+        loading="lazy"
+        decoding="async"
+      />
+      <p>{{site.tagline}}</p>
+    </div>
+
+    <div class="site-footer__col">
+      <h2>Endereço</h2>
+      <address>
+        {{site.address.street}}<br />Granada · {{site.address.city}}/{{site.address.state}}<br />CEP {{site.address.postalCode}}
+      </address>
+    </div>
+
+    <div class="site-footer__col">
+      <h2>Contato</h2>
+      <a href="{{whatsappUrl}}" data-wa="default" data-cta="footer" target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use href="#i-whatsapp" /></svg>{{site.phone.display}}
+      </a>
+      <a href="{{site.instagram}}" target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use href="#i-instagram" /></svg>@tabernasnookerbar
+      </a>
+    </div>
+
+    <nav class="site-footer__col" aria-label="Rodapé">
+      <h2>Página</h2>
+      <a href="#fotos">Fotos</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#como-chegar">Como chegar</a>
+    </nav>
+
+    <div class="site-footer__legal">
+      <span>© <span data-current-year>2026</span> {{site.name}} · CNPJ {{site.cnpj}}</span>
+      <span>Venda de bebida alcoólica proibida para menores de 18 anos. Beba com moderação. Se beber, não dirija.</span>
+      <button class="link-button" type="button" data-privacy-open>Política de privacidade</button>
+    </div>
+  </div>
+</footer>

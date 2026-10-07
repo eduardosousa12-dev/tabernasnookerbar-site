@@ -1,0 +1,296 @@
+/* ==========================================================================
+   Topo: selo de horário, título, preços de entrada, WhatsApp e vídeo real do salão
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding-top: calc(120px + env(safe-area-inset-top, 0px));
+  padding-bottom: clamp(3rem, 6vw, 7rem);
+}
+
+/* Luz da luminária (parallax no desktop via --glow-y) */
+.hero__glow {
+  position: absolute;
+  top: -30vmax;
+  left: 60%;
+  z-index: -1;
+  width: 90vmax;
+  height: 90vmax;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgb(255 214 140 / 14%) 0%,
+    rgb(14 90 60 / 22%) 32%,
+    transparent 64%
+  );
+  transform: translate3d(-50%, var(--glow-y, 0px), 0);
+  pointer-events: none;
+}
+
+.hero__grain {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.hero__grid {
+  align-items: center;
+  row-gap: var(--space-6);
+}
+
+.hero__copy {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-column: 1 / -1;
+  align-content: start;
+  gap: var(--space-4);
+}
+
+/* ---- Selo "aberto agora" ---- */
+.open-status {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 0.6em;
+  min-width: 18ch;
+  min-height: 44px;
+  padding: 0.45em 1.1em 0.45em 0.9em;
+  border: var(--hairline);
+  border-radius: var(--radius-pill);
+  background: rgb(17 25 20 / 60%);
+  color: var(--text);
+  font-size: var(--text-body);
+  font-weight: 700;
+}
+
+.open-status__dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+
+.open-status[data-open='true'] .open-status__dot {
+  background: var(--success);
+  box-shadow: 0 0 0 4px rgb(43 212 107 / 20%);
+}
+
+/* ---- Título com revelação linha a linha ---- */
+.hero__title {
+  display: grid;
+  gap: 0.1em;
+}
+
+.hero__line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.04em;
+  font-size: var(--text-hero);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+.hero__line > span {
+  display: inline-block;
+  animation: line-up var(--duration-cinematic) var(--ease-out) both;
+}
+
+.hero__line:nth-child(1) > span { animation-delay: 80ms; }
+.hero__line:nth-child(2) > span { animation-delay: 190ms; }
+.hero__line:nth-child(3) > span { animation-delay: 300ms; }
+
+.hero__line--accent {
+  color: var(--accent-text);
+}
+
+@keyframes line-up {
+  from {
+    transform: translateY(105%);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+.hero__sub {
+  max-width: 44ch;
+  color: var(--muted);
+  font-size: var(--text-lead);
+  line-height: 1.5;
+}
+
+.hero__sub {
+  color: var(--text);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+}
+
+/* ---- Linha de apoio, preços e nota ---- */
+.hero__eyebrow {
+  color: var(--muted);
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero__facts li {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5em;
+  padding: 10px 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  background: rgb(17 25 20 / 60%);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero__fact-label {
+  color: var(--muted);
+  font-size: var(--text-small);
+  font-weight: 500;
+}
+
+.rating-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 10px;
+  color: var(--text);
+  font-size: var(--text-small);
+  text-decoration: none;
+}
+
+.rating-badge__stars {
+  color: var(--ball-yellow);
+  letter-spacing: 2px;
+}
+
+.rating-badge b {
+  font-size: 1.1em;
+}
+
+.rating-badge:hover span:last-child {
+  text-decoration: underline;
+}
+
+/* ---- Vídeo real do salão ---- */
+.hero__media {
+  position: relative;
+  grid-column: 1 / -1;
+  width: min(100%, 420px);
+  margin: 0 auto;
+}
+
+.hero__media video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  background: var(--bg-deep);
+  box-shadow:
+    var(--shadow-media),
+    0 0 0 1px var(--border);
+}
+
+.hero__media.is-playing video {
+  aspect-ratio: 9 / 16;
+}
+
+.hero__media-controls {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.hero__media.is-playing .hero__media-controls {
+  display: none;
+}
+
+.hero__play {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--text);
+  color: var(--bg);
+  box-shadow: 0 10px 24px rgb(0 0 0 / 45%);
+  font: 700 var(--text-small) / 1 var(--font-body);
+  cursor: pointer;
+}
+
+.hero__play .icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Botão de pausar as animações (vídeo, carrossel) */
+.motion-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  background: rgb(10 15 12 / 78%);
+  color: var(--text);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+
+.motion-toggle .icon {
+  width: 14px;
+  height: 14px;
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    display: flex;
+    align-items: center;
+    min-height: min(100svh, 980px);
+    padding-top: 128px;
+  }
+
+  .hero__copy {
+    grid-column: 1 / span 7;
+  }
+
+  .hero__media {
+    grid-column: 9 / span 4;
+    width: 100%;
+  }
+
+  .hero__media video {
+    aspect-ratio: 9 / 16;
+    max-height: 78svh;
+  }
+}

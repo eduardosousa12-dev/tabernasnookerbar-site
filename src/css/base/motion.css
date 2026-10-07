@@ -1,0 +1,67 @@
+/* ==========================================================================
+   Movimento compartilhado: reveal no scroll e preferência de movimento reduzido
+   ========================================================================== */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Reveal: só esconde quando o JS está ativo (classe .js no <html>),
+   assim a página continua legível sem JavaScript.
+   O JS define --reveal-index em cada filho para o efeito em cascata. */
+.js [data-reveal] > * {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity var(--duration-cinematic) var(--ease-out),
+    transform var(--duration-cinematic) var(--ease-out);
+  transition-delay: calc(var(--reveal-index, 0) * var(--stagger));
+}
+
+.js [data-reveal].is-revealed > * {
+  opacity: 1;
+  transform: none;
+}
+
+/* Movimento reduzido: mantém transições suaves de opacidade e corta
+   deslocamentos, giros e pulsos. A mesa de sinuca e a faixa de avaliações
+   continuam (com botão de pausa), decisão de produto documentada no README. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js [data-reveal] > *,
+  .mobile-menu__links a,
+  .dish,
+  .dish__card {
+    transform: none;
+  }
+
+  .hero__line > span {
+    animation-name: fade-in;
+  }
+
+  .wa-fab::before,
+  .cursor {
+    display: none;
+  }
+}

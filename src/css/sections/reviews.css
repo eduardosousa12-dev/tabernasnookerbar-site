@@ -1,0 +1,157 @@
+/* ==========================================================================
+   Avaliações reais do Google
+   ========================================================================== */
+
+.reviews {
+  border-block: var(--hairline);
+  background: var(--surface);
+}
+
+.reviews__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.reviews__head .section-head {
+  max-width: 720px;
+  margin-bottom: 0;
+}
+
+.reviews__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(12px, 1.6vw, 20px);
+}
+
+.review-card {
+  position: relative;
+  display: grid;
+  align-content: space-between;
+  gap: var(--space-3);
+  padding: clamp(22px, 3vw, 34px);
+  border: var(--hairline);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+}
+
+.review-card blockquote {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+/* Citação literal ganha aspas; resumo (paráfrase da ficha) não */
+.review-card blockquote p::before {
+  content: open-quote;
+}
+
+.review-card blockquote p::after {
+  content: close-quote;
+}
+
+.review-card--summary blockquote {
+  color: var(--muted);
+}
+
+.review-card--summary blockquote p::before,
+.review-card--summary blockquote p::after {
+  content: none;
+}
+
+.review-card--featured blockquote {
+  font: 800 clamp(1.7rem, 1.2rem + 2.4vw, 3.4rem) / 1.02 var(--font-display);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.review-card footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.review-card footer b {
+  display: block;
+  font-weight: 700;
+}
+
+.review-card footer span {
+  color: var(--muted);
+  font-size: var(--text-label);
+}
+
+.avatar {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 26%, rgb(255 255 255 / 45%) 0 8%, transparent 26%),
+    var(--tone);
+  color: #fff;
+  font: 800 1.1rem/1 var(--font-display);
+}
+
+.avatar.tone-yellow {
+  color: var(--bg);
+}
+
+.scores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.scores span {
+  padding: 4px 10px;
+  border: var(--hairline);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-label);
+  font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  .reviews__head {
+    margin-bottom: var(--space-5);
+  }
+}
+
+@media (min-width: 768px) {
+  .reviews__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .review-card--featured {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .reviews__grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .review-card--featured {
+    grid-column: 1 / span 7;
+    grid-row: span 2;
+  }
+
+  .review-card:nth-child(2),
+  .review-card:nth-child(3) {
+    grid-column: 8 / span 5;
+  }
+
+  .review-card:nth-child(4) {
+    grid-column: 1 / span 6;
+  }
+
+  .review-card:nth-child(5) {
+    grid-column: 7 / span 6;
+  }
+}

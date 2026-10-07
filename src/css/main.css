@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Taberna Snooker Bar — folha de estilo principal
+
+   Este arquivo só define a ORDEM de carregamento. Em produção o build
+   (scripts/build.mjs) junta tudo num único css/styles.css.
+
+   Ordem: tokens → base → componentes → seções → movimento
+   ========================================================================== */
+
+@import url('settings/tokens.css');
+
+@import url('base/base.css');
+@import url('base/layout.css');
+
+@import url('components/ball.css');
+@import url('components/buttons.css');
+@import url('components/dialog.css');
+@import url('components/nav.css');
+@import url('components/floating.css');
+
+@import url('sections/hero.css');
+@import url('sections/gallery.css');
+@import url('sections/menu-rail.css');
+@import url('sections/reviews.css');
+@import url('sections/visit.css');
+@import url('sections/faq.css');
+@import url('sections/footer.css');
+
+@import url('base/motion.css');

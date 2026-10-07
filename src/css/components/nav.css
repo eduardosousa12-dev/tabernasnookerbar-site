@@ -1,0 +1,255 @@
+/* ==========================================================================
+   Navegação: barra fixa (encolhe ao rolar) e menu de tela cheia no celular
+   ========================================================================== */
+
+.site-nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: var(--z-nav);
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.site-nav__backdrop {
+  position: absolute;
+  inset: 0;
+  border-bottom: var(--hairline);
+  background: rgb(10 15 12 / 72%);
+  backdrop-filter: blur(16px) saturate(140%);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.site-nav__inner {
+  position: relative;
+}
+
+.site-nav__bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  height: var(--nav-height);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.site-nav__logo {
+  display: block;
+  width: 116px;
+  transform-origin: 0 50%;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.site-nav__logo img {
+  width: 100%;
+  height: auto;
+}
+
+.site-nav__links {
+  display: none;
+  gap: clamp(12px, 2vw, 32px);
+}
+
+.site-nav__links a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  min-height: 44px;
+  color: var(--muted);
+  font-size: 0.9875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--duration-micro) var(--ease-out);
+}
+
+.site-nav__links .ball {
+  width: 0.7em;
+  height: 0.7em;
+  transform: scale(0) translateX(-6px);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.site-nav__links a:hover,
+.site-nav__links a[aria-current='true'] {
+  color: var(--text);
+}
+
+.site-nav__links a:hover .ball,
+.site-nav__links a[aria-current='true'] .ball {
+  transform: none;
+}
+
+/* Botão "Cardápio" (amarelo, como as bolinhas de preço do cardápio impresso) */
+.site-nav__menu-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-left: auto;
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
+  background: var(--ball-yellow);
+  color: var(--bg-deep);
+  font-size: 0.9875rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    background-color var(--duration-micro) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .site-nav__menu-btn:hover {
+    background: var(--text);
+  }
+}
+
+.site-nav.is-scrolled .site-nav__menu-btn {
+  transform: translateY(5px);
+}
+
+.site-nav__cta {
+  display: none;
+  min-height: 48px;
+  font-size: 0.9875rem;
+}
+
+.icon-button {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.icon-button .icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* ---- Estado "rolou a página": fundo aparece e a barra encolhe ---- */
+.site-nav.is-scrolled .site-nav__backdrop {
+  opacity: 1;
+}
+
+.site-nav.is-scrolled .site-nav__bar {
+  transform: translateY(-10px);
+}
+
+.site-nav.is-scrolled .site-nav__logo {
+  transform: translateY(5px) scale(0.82);
+}
+
+.site-nav.is-scrolled .site-nav__cta,
+.site-nav.is-scrolled .site-nav__toggle {
+  transform: translateY(5px);
+}
+
+@media (min-width: 1024px) {
+  .site-nav__links {
+    display: flex;
+    margin-inline: auto;
+  }
+
+  .site-nav__menu-btn {
+    min-height: 48px;
+    margin-left: 0;
+    padding: 0 22px;
+  }
+
+  .site-nav__cta {
+    display: inline-flex;
+  }
+
+  .site-nav__toggle {
+    display: none;
+  }
+
+  .site-nav__logo {
+    width: 132px;
+  }
+}
+
+/* ==========================================================================
+   Menu de tela cheia (celular)
+   ========================================================================== */
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-menu);
+  display: flex;
+  flex-direction: column;
+  padding: calc(20px + env(safe-area-inset-top, 0px)) var(--gutter)
+    calc(24px + env(safe-area-inset-bottom, 0px));
+  background: var(--felt-deep);
+  visibility: hidden;
+  clip-path: circle(0% at calc(100% - 40px) 42px);
+  transition: clip-path 700ms var(--ease-in-out);
+}
+
+.mobile-menu.is-open {
+  visibility: visible;
+  clip-path: circle(150% at calc(100% - 40px) 42px);
+}
+
+.mobile-menu__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-menu__top img {
+  width: 110px;
+  height: auto;
+}
+
+.mobile-menu__links {
+  display: grid;
+  gap: 0.25rem;
+  margin-block: auto;
+}
+
+.mobile-menu__links a {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  min-height: 56px;
+  font: 900 clamp(2.6rem, 11vw, 4rem) / 1 var(--font-display);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    transform 800ms var(--ease-out),
+    opacity 800ms var(--ease-out);
+}
+
+/* Entrada em cascata dos links */
+.mobile-menu__links li:nth-child(1) a { transition-delay: calc(200ms + 0 * var(--stagger)); }
+.mobile-menu__links li:nth-child(2) a { transition-delay: calc(200ms + 1 * var(--stagger)); }
+.mobile-menu__links li:nth-child(3) a { transition-delay: calc(200ms + 2 * var(--stagger)); }
+.mobile-menu__links li:nth-child(4) a { transition-delay: calc(200ms + 3 * var(--stagger)); }
+.mobile-menu__links li:nth-child(5) a { transition-delay: calc(200ms + 4 * var(--stagger)); }
+
+.mobile-menu__links .ball {
+  width: 0.45em;
+  height: 0.45em;
+}
+
+.mobile-menu.is-open .mobile-menu__links a {
+  opacity: 1;
+  transform: none;
+}
+
+.mobile-menu__foot {
+  display: grid;
+  gap: var(--space-2);
+  color: var(--muted);
+  font-size: var(--text-small);
+}

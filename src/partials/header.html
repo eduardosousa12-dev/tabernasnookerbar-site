@@ -1,0 +1,62 @@
+<!-- ============ Navegação ============ -->
+<header class="site-nav" id="topo" data-site-nav>
+  <div class="site-nav__backdrop" aria-hidden="true"></div>
+  <div class="container site-nav__inner">
+    <nav class="site-nav__bar" aria-label="Principal">
+      <a class="site-nav__logo" href="#topo" aria-label="{{site.name}}, voltar ao início">
+        <img
+          src="assets/img/logo-taberna-snooker-bar.webp"
+          width="640"
+          height="295"
+          alt="Logo do {{site.name}} com duas bolas de sinuca no lugar dos 'o'"
+          decoding="async"
+        />
+      </a>
+
+      <ul class="site-nav__links" role="list">
+        <li><a href="#fotos"><i class="ball tone-red"></i>Fotos</a></li>
+        <li><a href="#avaliacoes"><i class="ball tone-green"></i>Avaliações</a></li>
+        <li><a href="#como-chegar"><i class="ball tone-blue"></i>Como chegar</a></li>
+      </ul>
+
+      <!-- Botão do cardápio: sempre visível no topo, no celular e no computador -->
+      <a class="site-nav__menu-btn" href="#cardapio">Cardápio</a>
+
+      <a class="btn site-nav__cta" href="{{whatsappUrl}}" data-wa="default" data-cta="nav" data-magnetic target="_blank" rel="noopener">
+        <span class="btn__spinner" aria-hidden="true"></span>
+        <svg class="icon btn__icon" aria-hidden="true"><use href="#i-whatsapp" /></svg>
+        Chamar no WhatsApp
+      </a>
+
+      <button class="icon-button site-nav__toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="icon" aria-hidden="true"><use href="#i-menu" /></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ Menu de tela cheia (celular) ============ -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true" inert>
+  <div class="mobile-menu__top">
+    <img src="assets/img/logo-taberna-snooker-bar.webp" width="640" height="295" alt="" loading="lazy" decoding="async" />
+    <button class="icon-button" type="button" data-menu-close aria-label="Fechar menu">
+      <svg class="icon" aria-hidden="true"><use href="#i-close" /></svg>
+    </button>
+  </div>
+
+  <ol class="mobile-menu__links" role="list">
+    <li><a href="#fotos"><i class="ball tone-red"></i>Fotos</a></li>
+        <li><a href="#cardapio"><i class="ball tone-yellow"></i>Cardápio</a></li>
+        <li><a href="#avaliacoes"><i class="ball tone-green"></i>Avaliações</a></li>
+        <li><a href="#como-chegar"><i class="ball tone-blue"></i>Como chegar</a></li>
+  </ol>
+
+  <div class="mobile-menu__foot">
+    <a class="btn btn--block" href="{{whatsappUrl}}" data-wa="default" data-cta="menu" target="_blank" rel="noopener">
+      <span class="btn__spinner" aria-hidden="true"></span>
+      <svg class="icon btn__icon" aria-hidden="true"><use href="#i-whatsapp" /></svg>
+      Chamar no WhatsApp
+    </a>
+    <p>{{site.address.street}} · Granada, Uberlândia</p>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Perguntas frequentes (accordion acessível) — fica dentro de Como chegar
+   ========================================================================== */
+
+.faq__list {
+  border-top: var(--hairline);
+}
+
+.faq-item {
+  border-bottom: var(--hairline);
+}
+
+.faq-item h4 {
+  margin: 0;
+  font: 600 clamp(1.1rem, 1rem + 0.4vw, 1.3rem) / 1.35 var(--font-body);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.faq-item button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  width: 100%;
+  min-height: 64px;
+  padding: 18px 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-item .icon {
+  width: 22px;
+  height: 22px;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.faq-item button[aria-expanded='true'] .icon {
+  transform: rotate(45deg);
+}
+
+.faq-item__panel {
+  max-width: 64ch;
+  padding: 0 48px 24px 0;
+  color: var(--muted);
+}
+
+.faq-item__panel:not([hidden]) {
+  animation: fade-up var(--duration-base) var(--ease-out);
+}
+
+.faq-item__panel a {
+  color: var(--text);
+}
+

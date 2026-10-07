@@ -1,0 +1,17 @@
+# Cabeçalhos de cache e segurança (Netlify e Cloudflare Pages leem este arquivo).
+# Em outro servidor (Apache, Nginx), aplique as mesmas regras na configuração dele.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+/index.html
+  Cache-Control: no-cache
+
+# Módulos JS não têm hash no nome: o navegador revalida a cada visita (resposta 304 é barata)
+/js/*
+  Cache-Control: no-cache
+
+/assets/*
+  Cache-Control: public, max-age=2592000

@@ -1,0 +1,95 @@
+/* ==========================================================================
+   Fotos: grade de fotos reais do bar, com legenda curta
+   ========================================================================== */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(8px, 1.4vw, 16px);
+}
+
+.gallery__item {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--bg-deep);
+  aspect-ratio: 3 / 4;
+}
+
+.gallery__item--wide {
+  grid-column: span 2;
+  aspect-ratio: 16 / 9;
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-cinematic) var(--ease-out);
+}
+
+.gallery__item:hover img {
+  transform: scale(1.04);
+}
+
+.gallery__item figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 32px 14px 12px;
+  background: linear-gradient(180deg, transparent, rgb(7 10 8 / 88%));
+  color: var(--text);
+  font-size: var(--text-small);
+  font-weight: 600;
+}
+
+.gallery__more {
+  display: flex;
+  grid-column: span 2;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  min-height: 160px;
+  padding: var(--space-3);
+  border: var(--hairline);
+  border-radius: var(--radius-md);
+  background: var(--felt-deep);
+  color: var(--text);
+  font-size: var(--text-lead);
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.gallery__more .icon {
+  width: 32px;
+  height: 32px;
+}
+
+.gallery__more:hover b {
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  /* No celular a foto aérea ocupa a largura toda */
+  .gallery__item--tall {
+    grid-column: span 2;
+    aspect-ratio: 4 / 5;
+  }
+}
+
+@media (min-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: minmax(0, auto);
+  }
+
+  .gallery__item--tall {
+    grid-row: span 2;
+    grid-column: span 2;
+    aspect-ratio: auto;
+  }
+
+  .gallery__item--wide {
+    grid-column: span 2;
+  }
+}

@@ -1,0 +1,101 @@
+/* ==========================================================================
+   Design tokens — direção de arte "Pano Verde, Luz Baixa"
+   Toda cor, fonte, espaço, raio e tempo de animação do site sai daqui.
+   Nenhum componente deve usar valor literal que já exista como token.
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* ---- Cor: superfícies e texto ---- */
+  --bg: #0a0f0c; /* salão à meia-luz, preto com viés verde */
+  --bg-deep: #070a08; /* fundo de mídia e placar */
+  --bg-footer: #060907;
+  --surface: #111914;
+  --surface-2: #17221b; /* superfície elevada (toast, modal) */
+  --border: rgb(232 226 210 / 12%);
+  --border-strong: rgb(232 226 210 / 24%);
+  --text: #f3eee3; /* branco giz, quente */
+  --muted: #a8b4ac; /* texto secundário — contraste 9:1 sobre --bg */
+  --text-dim: #7d8a82; /* texto "apagado" — contraste 5,4:1 sobre --bg (AA) */
+  --placeholder: #7f8b83;
+
+  /* ---- Cor: marca e estados ---- */
+  --accent: #d4111b; /* vermelho do logo — 5,4:1 com branco */
+  --accent-hover: #b80e17;
+  --accent-text: #ff5a61; /* vermelho para texto sobre fundo escuro */
+  --destructive: #ff7a6b;
+  --success: #2bd46b;
+  --whatsapp: #1faf54;
+  --felt: #0e5a3c; /* pano verde */
+  --felt-deep: #062a1c;
+  --chalk: #2f8cff; /* giz azul */
+  --on-accent: #fff;
+
+  /* ---- Bolas da sinuca brasileira (valor em pontos: 1 a 7) ----
+     Usadas como sistema de cor: marcadores, passos, avatares e a mesa em canvas. */
+  --ball-red: #d7121c; /* 1 */
+  --ball-yellow: #f8d200; /* 2 */
+  --ball-green: #149a55; /* 3 */
+  --ball-brown: #7a4a2a; /* 4 */
+  --ball-blue: #1a6be0; /* 5 */
+  --ball-pink: #f06ba8; /* 6 */
+  --ball-black: #141414; /* 7 */
+  --ball-cue: #f4efe3; /* bola branca */
+
+  /* ---- Tipografia ---- */
+  /* As fontes de reserva são parecidas na largura (condensadas no display) para a
+     troca quando a fonte do Google chega mexer o mínimo no layout. */
+  --font-display: 'Big Shoulders Display', 'Avenir Next Condensed', 'Arial Narrow', 'Roboto Condensed',
+    sans-serif-condensed, impact, sans-serif;
+  --font-body: 'Figtree', 'Segoe UI', 'Helvetica Neue', roboto, arial, sans-serif;
+  --text-hero: clamp(3.5rem, 1.9rem + 5.6vw, 6.5rem);
+  --text-h2: clamp(2.6rem, 1.7rem + 3.6vw, 5rem);
+  --text-h3: clamp(1.5rem, 1.2rem + 1.1vw, 2.125rem);
+  --text-lead: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  --text-body: 1.0625rem;
+  --text-small: 0.9375rem;
+  --text-label: 0.8125rem;
+
+  /* ---- Espaço (escala de 8px) ---- */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 2.5rem;
+  --space-6: 3rem;
+  --space-8: 4rem;
+  --space-10: 5rem;
+  --space-12: 6rem;
+  --section-padding: clamp(4.5rem, 2.2rem + 8vw, 11rem);
+  --gutter: clamp(16px, 4vw, 48px);
+  --container: 1360px;
+  --nav-height: 84px;
+
+  /* ---- Forma ---- */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+  --hairline: 1px solid var(--border);
+  --shadow-float: 0 18px 40px rgb(0 0 0 / 50%);
+  --shadow-media: 0 50px 80px -30px rgb(0 0 0 / 80%);
+
+  /* ---- Movimento ---- */
+  --duration-micro: 150ms;
+  --duration-base: 400ms;
+  --duration-cinematic: 1000ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* entradas */
+  --ease-in-out: cubic-bezier(0.87, 0, 0.13, 1); /* saídas e transições de tela */
+  --stagger: 80ms;
+
+  /* ---- Camadas (z-index) ---- */
+  --z-sticky-cta: 85;
+  --z-fab: 90;
+  --z-nav: 100;
+  --z-menu: 110;
+  --z-progress: 120;
+  --z-cursor: 150;
+  --z-toast: 160;
+  --z-skip: 200;
+}

@@ -1,0 +1,44 @@
+<!-- ============ Avaliações do Google ============
+     Só citações literais, copiadas do Google. Não reescreva nem resuma. -->
+<section class="section reviews" id="avaliacoes" aria-labelledby="avaliacoes-titulo">
+  <div class="container">
+    <div class="reviews__head" data-reveal>
+      <div class="section-head tone-green">
+        <span class="eyebrow">Avaliações do Google</span>
+        <h2 id="avaliacoes-titulo">O que o pessoal fala.</h2>
+      </div>
+      {{> ratingBadge}}
+    </div>
+
+    <div class="reviews__grid">
+      <article class="review-card review-card--featured" data-reveal data-tilt>
+        <blockquote><p>Comida boa, cerveja gelada, atendimento excelente, preço justo! Vc se sente em casa.</p></blockquote>
+        <footer>
+          <span class="avatar tone-red" aria-hidden="true">AD</span>
+          <div><b>Alaerdes Duarte</b><span>Avaliação no Google</span></div>
+        </footer>
+      </article>
+
+      <article class="review-card" data-reveal>
+        <blockquote><p>Top, ambiente legal, mesas de sinuca boas, colaboradores legais, bom lugar pra ir pra descontrair.</p></blockquote>
+        <footer>
+          <span class="avatar tone-yellow" aria-hidden="true">LN</span>
+          <div><b>L Nekko</b><span>Avaliação no Google</span></div>
+        </footer>
+      </article>
+
+      <article class="review-card" data-reveal>
+        <blockquote><p>Um lugar divertido e com petiscos saborosos. Muito agradável e familiar.</p></blockquote>
+        <footer>
+          <span class="avatar tone-pink" aria-hidden="true">DM</span>
+          <div><b>Doce Maria Flor confeitaria</b><span>Avaliação no Google</span></div>
+        </footer>
+      </article>
+    </div>
+
+    <a class="link-arrow reviews__more" href="{{site.googleRating.url}}" target="_blank" rel="noopener">
+      <span>Ver todas as avaliações no Google</span>
+      <svg class="icon" aria-hidden="true"><use href="#i-arrow-right" /></svg>
+    </a>
+  </div>
+</section>

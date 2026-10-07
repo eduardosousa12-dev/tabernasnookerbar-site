@@ -1,0 +1,110 @@
+/* ==========================================================================
+   Rodapé: marca, endereço, contato, links e informações legais
+   ========================================================================== */
+
+.site-footer {
+  padding-block: var(--space-12) calc(var(--space-6) + env(safe-area-inset-bottom, 0px));
+  border-top: var(--hairline);
+  background: var(--bg-footer);
+}
+
+.site-footer__grid {
+  row-gap: var(--space-6);
+}
+
+.site-footer__brand {
+  display: grid;
+  grid-column: 1 / -1;
+  align-content: start;
+  gap: var(--space-2);
+}
+
+.site-footer__brand img {
+  width: 170px;
+  height: auto;
+}
+
+.site-footer__brand p {
+  max-width: 34ch;
+  color: var(--muted);
+}
+
+.site-footer__col {
+  display: grid;
+  grid-column: 1 / -1;
+  align-content: start;
+  gap: 10px;
+  font-size: var(--text-small);
+}
+
+.site-footer__col h2 {
+  margin-bottom: 6px;
+  color: var(--muted);
+  font: 700 var(--text-label) / 1 var(--font-body);
+  letter-spacing: 0.14em;
+}
+
+.site-footer__col a,
+.site-footer__col address {
+  color: var(--text);
+  font-style: normal;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.site-footer__col a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  min-height: 32px;
+}
+
+.site-footer__col a:hover {
+  text-decoration: underline;
+}
+
+.site-footer__col .icon {
+  width: 18px;
+  height: 18px;
+}
+
+.site-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  grid-column: 1 / -1;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
+  padding-top: var(--space-4);
+  border-top: var(--hairline);
+  color: var(--muted);
+  font-size: var(--text-label);
+}
+
+@media (max-width: 767px) {
+  /* Espaço para o CTA fixo não cobrir o fim da página */
+  .site-footer {
+    padding-bottom: calc(110px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (min-width: 480px) {
+  .site-footer__col {
+    grid-column: span 6;
+  }
+}
+
+@media (min-width: 768px) {
+  .site-footer__col {
+    grid-column: span 4;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-footer__brand {
+    grid-column: 1 / span 3;
+  }
+
+  .site-footer__col {
+    grid-column: span 3;
+  }
+}

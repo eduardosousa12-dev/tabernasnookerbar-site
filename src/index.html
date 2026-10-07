@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Bar com Sinuca e Futebol em Uberlândia | {{site.name}}</title>
+
+    <!-- @include partials/head-meta.html -->
+
+    <!-- CSS do site: em produção o build coloca aqui o conteúdo de css/main.css, minificado -->
+    {{> inlineCss}}
+
+    <!-- Fontes do Google sem bloquear a primeira pintura: o texto aparece na hora com a
+         fonte de reserva (tokens.css) e troca quando a fonte chega (display=swap). -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="{{fonts.css}}" />
+    <link rel="stylesheet" href="{{fonts.css}}" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="{{fonts.css}}" /></noscript>
+    <link rel="modulepreload" href="{{assets.js}}" />
+    {{> modulePreloads}}
+    <!-- Pôster do vídeo do topo: pode ser a maior imagem da primeira tela (LCP) -->
+    <link rel="preload" as="image" href="assets/img/poster-taberna-snooker-bar-ambiente.webp" fetchpriority="high" />
+
+    <!-- Marca que o JS está ativo antes da primeira pintura (usado pelo reveal em css/base/motion.css) -->
+    <script>
+      document.documentElement.classList.add('js');
+    </script>
+
+    {{> structuredData}}
+  </head>
+
+  <body>
+    <!-- @include partials/icons.html -->
+
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
+    <div class="cursor" data-cursor aria-hidden="true"><span class="cursor__ring"></span></div>
+
+    <!-- @include partials/header.html -->
+
+    <main id="conteudo">
+      <!-- @include partials/hero.html -->
+      <!-- @include partials/gallery.html -->
+      <!-- @include partials/menu.html -->
+      <!-- @include partials/reviews.html -->
+      <!-- @include partials/visit.html -->
+    </main>
+
+    <!-- @include partials/footer.html -->
+    <!-- @include partials/floating.html -->
+
+    <script type="module" src="{{assets.js}}"></script>
+  </body>
+</html>

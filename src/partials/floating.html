@@ -1,0 +1,40 @@
+<!-- ============ Elementos flutuantes ============ -->
+<div class="sticky-cta" data-sticky-cta>
+  <a class="btn" href="{{whatsappUrl}}" data-wa="default" data-cta="sticky" target="_blank" rel="noopener">
+    <span class="btn__spinner" aria-hidden="true"></span>
+    <svg class="icon btn__icon" aria-hidden="true"><use href="#i-whatsapp" /></svg>
+    Chamar no WhatsApp
+  </a>
+</div>
+
+<a
+  class="wa-fab"
+  href="{{whatsappUrl}}"
+  data-wa="default"
+  data-cta="fab"
+  target="_blank"
+  rel="noopener"
+  aria-label="Falar com o Taberna no WhatsApp"
+>
+  <svg class="icon" aria-hidden="true"><use href="#i-whatsapp" /></svg>
+</a>
+
+<div class="toast" data-toast role="status" aria-live="polite">
+  <i class="ball"></i><span data-toast-text></span>
+</div>
+
+<!-- ============ Política de privacidade ============ -->
+<dialog class="dialog" id="privacidade" aria-labelledby="privacidade-titulo">
+  <div class="dialog__body">
+    <h2 id="privacidade-titulo">Política de privacidade</h2>
+    <p>Este site é uma página informativa do {{site.name}}.</p>
+    <ul>
+      <li>Este site não pede nem guarda dados pessoais. Os botões só abrem o WhatsApp no seu aparelho, com uma mensagem pronta que você pode editar antes de enviar.</li>
+      <li>A conversa no WhatsApp segue a política de privacidade do próprio WhatsApp.</li>
+      <li>O mapa do Google só carrega se você tocar em “Carregar mapa”.</li>
+      <li>Se o site passar a usar ferramentas de medição de visitas, elas serão descritas aqui.</li>
+    </ul>
+    <p>Dúvidas: {{site.phone.display}}.</p>
+    <button class="btn btn--ghost dialog__close" type="button" data-privacy-close>Fechar</button>
+  </div>
+</dialog>

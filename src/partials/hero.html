@@ -1,0 +1,71 @@
+<!-- ============ Topo ============ -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="hero__grain" aria-hidden="true"></div>
+
+  <div class="container grid-12 hero__grid">
+    <div class="hero__copy">
+      <!-- Texto trocado pelo JS conforme o horário de hoje (js/components/opening-status.js) -->
+      <p class="open-status" data-open-status data-open="false" aria-live="polite">
+        <span class="open-status__dot" aria-hidden="true"></span>
+        <span data-open-status-text>Aberto de terça a domingo</span>
+      </p>
+
+      <p class="hero__eyebrow">Bar de sinuca no Granada · Uberlândia</p>
+
+      <h1 class="hero__title" id="hero-title">
+        <span class="hero__line"><span>Taco na mão.</span></span>
+        <span class="hero__line"><span>Jogo na TV.</span></span>
+        <span class="hero__line hero__line--accent"><span>Copo cheio.</span></span>
+      </h1>
+
+      <p class="hero__sub">6 mesas de sinuca, 4 TVs e porção até tarde. Há 19 anos no Granada.</p>
+
+      <ul class="hero__facts" role="list">
+        <li><span class="hero__fact-label">Ficha da sinuca</span> {{prices.token}}</li>
+        <li><span class="hero__fact-label">Porções</span> a partir de {{prices.portionsFrom}}</li>
+      </ul>
+
+      <div class="hero__actions">
+        <a class="btn" href="{{whatsappUrl}}" data-wa="default" data-cta="hero" data-magnetic target="_blank" rel="noopener">
+          <span class="btn__spinner" aria-hidden="true"></span>
+          <svg class="icon btn__icon" aria-hidden="true"><use href="#i-whatsapp" /></svg>
+          Chamar no WhatsApp
+        </a>
+        <a class="btn btn--ghost" href="#cardapio">
+          Ver cardápio e preços
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right" /></svg>
+        </a>
+      </div>
+
+      {{> ratingBadge}}
+    </div>
+
+    <!-- Vídeo real do salão: loop curto sem som; "Ver com som" troca para o vídeo completo -->
+    <figure class="hero__media" data-ambient-video>
+      <video
+        width="540"
+        height="960"
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster="assets/img/poster-taberna-snooker-bar-ambiente.webp"
+        data-loop-src="assets/video/taberna-snooker-bar-ambiente-loop.mp4"
+        data-full-src="assets/video/taberna-snooker-bar-uberlandia.mp4"
+        aria-label="Vídeo do {{site.name}}: o salão cheio visto de cima, as mesas de sinuca e o telão"
+      ></video>
+      <div class="hero__media-controls">
+        <button class="hero__play" type="button" data-video-play>
+          <svg class="icon icon--solid" aria-hidden="true"><use href="#i-play" /></svg>
+          <span>Ver com som</span>
+        </button>
+        <button class="motion-toggle" type="button" data-motion-toggle aria-pressed="false">
+          <svg class="icon icon--solid" data-icon="pause" aria-hidden="true"><use href="#i-pause" /></svg>
+          <svg class="icon icon--solid" data-icon="play" aria-hidden="true" hidden><use href="#i-play" /></svg>
+          <span class="sr-only" data-motion-label>Pausar animações</span>
+        </button>
+      </div>
+    </figure>
+  </div>
+</section>

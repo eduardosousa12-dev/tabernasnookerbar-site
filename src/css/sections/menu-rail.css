@@ -1,0 +1,482 @@
+/* ==========================================================================
+   Cardápio: carrossel horizontal que avança sozinho a cada 2 s
+   (js/components/menu-carousel.js). A rolagem é nativa, com scroll-snap,
+   então arrastar com o dedo funciona em qualquer tela.
+   ========================================================================== */
+
+.menu-rail__stage {
+  padding-block: var(--section-padding);
+}
+
+.menu-rail__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.menu-rail__head .section-head {
+  max-width: 720px;
+  margin-bottom: 0;
+}
+
+.menu-rail__controls {
+  display: flex;
+  gap: 10px;
+}
+
+.menu-rail__viewport {
+  position: relative; /* referência para offsetLeft dos slides */
+  padding-block: 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.menu-rail__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-rail__track {
+  display: flex;
+  gap: clamp(14px, 2vw, 28px);
+  width: max-content;
+  padding-inline: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
+}
+
+.menu-rail__hint {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: var(--space-3);
+  color: var(--muted);
+  font-size: var(--text-small);
+}
+
+.menu-rail__hint .icon {
+  width: 18px;
+  height: 18px;
+}
+
+@media (min-width: 1024px) {
+  .menu-rail__hint {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Card de prato
+   ========================================================================== */
+
+.dish {
+  flex: none;
+  width: min(78vw, 380px);
+  scroll-snap-align: center;
+  transform: scale(0.94);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+/* Prato em destaque no carrossel (classe aplicada pelo JS).
+   Os outros ficam menores e com a foto escurecida; o texto não perde
+   contraste, para continuar legível e acessível. */
+.dish.is-active,
+html:not(.js) .dish {
+  transform: none;
+}
+
+.dish__media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgb(7 10 8 / 45%);
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.dish.is-active .dish__media::before,
+html:not(.js) .dish__media::before {
+  opacity: 0;
+}
+
+.dish__card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+  overflow: hidden;
+  border: var(--hairline);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.dish__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--bg-deep);
+}
+
+.dish__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-cinematic) var(--ease-out);
+}
+
+.dish__media--cutout {
+  background: radial-gradient(
+    circle at 50% 55%,
+    color-mix(in srgb, var(--tone) 35%, var(--bg-deep)) 0%,
+    var(--bg-deep) 70%
+  );
+}
+
+.dish__media--cutout img {
+  inset: 6%;
+  width: 88%;
+  height: 88%;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 24px rgb(0 0 0 / 55%));
+}
+
+.dish__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgb(17 25 20 / 55%));
+  pointer-events: none;
+}
+
+.dish:hover .dish__media img {
+  transform: scale(1.05);
+}
+
+.dish__media .ball {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 6px 14px rgb(0 0 0 / 45%);
+}
+
+.dish__body {
+  display: grid;
+  align-content: start;
+  gap: var(--space-1);
+  padding: var(--space-3);
+}
+
+.dish__category {
+  color: var(--muted);
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.dish__body h3 {
+  font-size: 2rem;
+}
+
+.dish__body p {
+  color: var(--muted);
+}
+
+
+/* ---- Ficha da sinuca em destaque ---- */
+.token-price {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  background: var(--ball-yellow);
+  color: var(--bg);
+  font-size: var(--text-lead);
+  font-weight: 600;
+}
+
+.token-price .ball {
+  width: 18px;
+  height: 18px;
+}
+
+.token-price strong {
+  font-weight: 800;
+}
+
+/* ---- Preço e selo nos cards ---- */
+.dish__body .dish__price {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-top: var(--space-1);
+  color: var(--text);
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.price abbr {
+  color: var(--muted);
+  font-size: 0.8em;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.price--ask {
+  color: var(--muted);
+  font-size: var(--text-small);
+  font-weight: 600;
+}
+
+.dish__badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: var(--text-label);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ---- Cardápio completo ---- */
+.menu-full {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 880px;
+  margin-top: var(--space-8);
+  margin-inline: auto;
+}
+
+.menu-full__title {
+  margin-bottom: var(--space-1);
+  font-size: var(--text-h3);
+}
+
+.menu-group {
+  border-top: var(--hairline);
+}
+
+.menu-group:last-of-type {
+  border-bottom: var(--hairline);
+}
+
+.menu-group summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 60px;
+  font: 800 1.5rem/1 var(--font-display);
+  text-transform: uppercase;
+  list-style: none;
+  cursor: pointer;
+}
+
+.menu-group summary::-webkit-details-marker {
+  display: none;
+}
+
+.menu-group summary .icon {
+  width: 22px;
+  height: 22px;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.menu-group[open] summary .icon {
+  transform: rotate(45deg);
+}
+
+.price-group {
+  margin: var(--space-2) 0 4px;
+  color: var(--muted);
+  font: 700 var(--text-label) / 1 var(--font-body);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.price-list {
+  padding-bottom: var(--space-2);
+}
+
+.price-list__row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 0 10px;
+  padding: 9px 0;
+}
+
+.price-list__name {
+  font-weight: 600;
+}
+
+.price-list__dots {
+  border-bottom: 1px dotted var(--border-strong);
+  transform: translateY(-4px);
+}
+
+.price-list__price {
+  display: flex;
+  gap: 12px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.price-list__desc {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: var(--text-small);
+}
+
+.price-list__badge {
+  margin-left: 6px;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: 2px;
+}
+
+/* Foto pequena ao lado do nome (lanches com foto) */
+.price-list__row--photo {
+  align-items: center;
+}
+
+.price-list__row--photo .price-list__name {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.price-list__thumb {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 2px var(--ball-yellow);
+}
+
+/* ---- Grade de fotos redondas (porções), como no cardápio impresso ---- */
+.photo-menu {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5) var(--space-3);
+  padding: var(--space-2) 0 var(--space-5);
+}
+
+.photo-dish {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 8px;
+  text-align: center;
+}
+
+.photo-dish__img {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--surface);
+  box-shadow:
+    0 0 0 3px var(--text),
+    0 14px 28px rgb(0 0 0 / 45%);
+}
+
+.photo-dish__badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+}
+
+.photo-dish__name {
+  margin-top: 4px;
+  font: 800 1.15rem/1.05 var(--font-display);
+  text-transform: uppercase;
+}
+
+.photo-dish__price {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Preço em bolinha amarela, como no cardápio impresso */
+.photo-dish__price .price {
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--ball-yellow);
+  color: var(--bg-deep);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.photo-dish__price .price abbr {
+  color: inherit;
+}
+
+.photo-dish__price .price--ask {
+  background: transparent;
+  color: var(--muted);
+  box-shadow: inset 0 0 0 1px var(--border-strong);
+}
+
+@media (min-width: 640px) {
+  .photo-menu {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.menu-full__note {
+  color: var(--muted);
+  font-size: var(--text-small);
+}
+
+.menu-full .btn {
+  justify-self: start;
+}
+
+@media (max-width: 479px) {
+  /* Em telas estreitas, o preço desce para baixo do nome */
+  .price-list__row {
+    grid-template-columns: 1fr auto;
+  }
+
+  .price-list__dots {
+    display: none;
+  }
+}

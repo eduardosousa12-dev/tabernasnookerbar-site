@@ -1,0 +1,47 @@
+<!-- ============ Cardápio ============
+     Tudo aqui vem de src/data/menu.json (ver scripts/lib/sections.mjs):
+     o carrossel mostra os pratos com foto; a lista abaixo mostra o cardápio completo.
+     Para mudar um prato ou preço, edite o JSON. -->
+<section class="menu-rail" id="cardapio" aria-labelledby="cardapio-titulo" data-menu-carousel>
+  <div class="menu-rail__stage">
+    <div class="container menu-rail__head" data-reveal>
+      <div class="section-head tone-yellow">
+        <span class="eyebrow">Cardápio</span>
+        <h2 id="cardapio-titulo">Cardápio e preços</h2>
+      </div>
+      <p class="token-price">
+        <i class="ball tone-black" aria-hidden="true"></i>
+        Ficha da sinuca <strong>{{prices.token}}</strong>
+      </p>
+      <div class="menu-rail__controls">
+        <button class="icon-button" type="button" data-carousel-prev aria-label="Prato anterior">
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>
+        </button>
+        <button class="icon-button" type="button" data-carousel-toggle aria-pressed="false" aria-label="Pausar passagem automática">
+          <svg class="icon icon--solid" data-icon="pause" aria-hidden="true"><use href="#i-pause" /></svg>
+          <svg class="icon icon--solid" data-icon="play" aria-hidden="true" hidden><use href="#i-play" /></svg>
+        </button>
+        <button class="icon-button" type="button" data-carousel-next aria-label="Próximo prato">
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right" /></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="menu-rail__viewport" data-carousel-viewport tabindex="0" role="region" aria-label="Pratos com foto. Use as setas para navegar.">
+      <ul class="menu-rail__track" role="list">
+        {{> menuItems}}
+      </ul>
+    </div>
+
+    <div class="container menu-full">
+      <h3 class="menu-full__title">Cardápio completo</h3>
+      {{> menuList}}
+      <p class="menu-full__note">{{menuNote}} Aceitamos {{paymentsText}}.</p>
+      <a class="btn" href="{{whatsappUrl}}" data-wa="menu" data-cta="cardapio" target="_blank" rel="noopener">
+        <span class="btn__spinner" aria-hidden="true"></span>
+        <svg class="icon btn__icon" aria-hidden="true"><use href="#i-whatsapp" /></svg>
+        Pedir pelo WhatsApp
+      </a>
+    </div>
+  </div>
+</section>

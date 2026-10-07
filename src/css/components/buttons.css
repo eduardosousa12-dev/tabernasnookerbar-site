@@ -1,0 +1,114 @@
+/* ==========================================================================
+   Botões e links de ação
+   ========================================================================== */
+
+.btn {
+  --btn-bg: var(--accent);
+  --btn-bg-hover: var(--accent-hover);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65em;
+  min-height: 56px;
+  padding: 0 1.6em;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--btn-bg);
+  color: var(--on-accent);
+  font: 700 1.0625rem/1 var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-micro) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.btn:hover {
+  background: var(--btn-bg-hover);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-bg-hover: rgb(243 238 227 / 6%);
+
+  color: var(--text);
+  box-shadow: inset 0 0 0 1px var(--border-strong);
+}
+
+/* Botão fantasma sobre mídia (ex.: mapa) precisa de fundo sólido */
+.btn--ghost-solid {
+  --btn-bg: var(--bg);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+/* ---- Estado de carregamento: troca o ícone por um spinner ---- */
+.btn__spinner {
+  display: none;
+  width: 1.1em;
+  height: 1.1em;
+  border: 2px solid rgb(255 255 255 / 35%);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.btn.is-loading .btn__spinner {
+  display: block;
+}
+
+.btn.is-loading .btn__icon {
+  display: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- Link com seta ---- */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  min-height: 44px;
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link-arrow span {
+  padding-bottom: 2px;
+  background: linear-gradient(currentcolor, currentcolor) 0 100% / 100% 1px no-repeat;
+}
+
+.link-arrow .icon {
+  width: 1.1em;
+  height: 1.1em;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.link-arrow:hover .icon {
+  transform: translateX(4px);
+}
+
+/* Botão com aparência de link (ex.: "Política de privacidade") */
+.link-button {
+  min-height: 32px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}

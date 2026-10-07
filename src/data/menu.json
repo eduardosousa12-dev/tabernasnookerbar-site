@@ -1,0 +1,446 @@
+{
+  "$comment": "Cardápio com preços (cardápio impresso de out/2026). price = preço único; sizes = preços por tamanho (M/G). photo = foto redonda do prato no cardápio completo (fotos do cardápio impresso, 400x400 WebP em src/assets/img/cardapio/fotos/). Pratos com 'image' aparecem no carrossel com foto; todos aparecem na lista completa. Fotos em src/assets/img/cardapio/ (800x600, WebP); cutout: true = foto com fundo transparente. tone = cor da bolinha. badge = selo no card (ex.: Novidade). priceOnRequest: true = preço ainda não informado (mostra 'Preço no WhatsApp').",
+  "currency": "BRL",
+  "note": "Preços do cardápio da casa. Podem mudar sem aviso.",
+  "sections": [
+    {
+      "id": "porcoes",
+      "name": "Porções e petiscos",
+      "items": [
+        {
+          "name": "Torresmo frito",
+          "badge": "Novidade",
+          "priceOnRequest": true,
+          "image": "torresmo-frito-taberna-snooker-bar-uberlandia.webp",
+          "alt": "Porção de torresmo frito em tiras pururucadas, sobre alface, com limão, do Taberna Snooker Bar",
+          "tone": "red",
+          "cutout": true,
+          "photo": "fotos/torresmo-frito.webp"
+        },
+        {
+          "name": "Taberna mista",
+          "sizes": {
+            "M": 49.9,
+            "G": 62.9
+          },
+          "photo": "fotos/taberna-mista.webp"
+        },
+        {
+          "name": "Tábua de frios",
+          "price": 59.9,
+          "photo": "fotos/tabua-de-frios.webp"
+        },
+        {
+          "name": "Taberna contra filé",
+          "sizes": {
+            "M": 49.9,
+            "G": 62.9
+          },
+          "image": "contrafile-na-chapa-taberna-snooker-bar-uberlandia.webp",
+          "alt": "Contra filé em tiras com cebola na chapa de ferro, do Taberna Snooker Bar",
+          "tone": "brown",
+          "photo": "fotos/taberna-contra-file.webp"
+        },
+        {
+          "name": "Filé de tilápia",
+          "sizes": {
+            "M": 49.9,
+            "G": 62.9
+          },
+          "image": "file-de-tilapia-frito-taberna-snooker-bar-uberlandia.webp",
+          "alt": "Filé de tilápia empanado com limão e molhos, do Taberna Snooker Bar",
+          "tone": "blue",
+          "photo": "fotos/file-de-tilapia.webp"
+        },
+        {
+          "name": "Taberna frango",
+          "sizes": {
+            "M": 32.9,
+            "G": 46.9
+          },
+          "photo": "fotos/taberna-frango.webp"
+        },
+        {
+          "name": "Frango a passarinho",
+          "sizes": {
+            "M": 36.9,
+            "G": 47.9
+          },
+          "image": "frango-a-passarinho-taberna-snooker-bar-uberlandia.webp",
+          "alt": "Frango a passarinho com alho dourado e salsinha, do Taberna Snooker Bar",
+          "tone": "green",
+          "photo": "fotos/frango-a-passarinho.webp"
+        },
+        {
+          "name": "Batata frita",
+          "priceOnRequest": true,
+          "photo": "fotos/batata-frita.webp"
+        },
+        {
+          "name": "Batata frita com queijo",
+          "sizes": {
+            "M": 24.9,
+            "G": 34.9
+          },
+          "image": "batata-frita-taberna-snooker-bar-uberlandia.webp",
+          "alt": "Porção de batata frita na bandeja, com ketchup e vinagrete, do Taberna Snooker Bar",
+          "tone": "yellow",
+          "cutout": true,
+          "photo": "fotos/batata-frita-com-queijo.webp"
+        },
+        {
+          "name": "Disco de carne com queijo",
+          "price": 37.9,
+          "photo": "fotos/disco-de-carne-com-queijo.webp"
+        },
+        {
+          "name": "Bolinho de mandioca com carne seca",
+          "price": 38.9,
+          "photo": "fotos/bolinho-de-mandioca-com-carne-seca.webp"
+        },
+        {
+          "name": "Salaminho com azeitona",
+          "price": 36.9,
+          "photo": "fotos/salaminho-com-azeitona.webp"
+        },
+        {
+          "name": "Quibe recheado com catupiry",
+          "price": 37.9,
+          "photo": "fotos/quibe-recheado-com-catupiry.webp"
+        },
+        {
+          "name": "Taberna lombo",
+          "sizes": {
+            "M": 35.9,
+            "G": 47.9
+          },
+          "photo": "fotos/taberna-lombo.webp"
+        },
+        {
+          "name": "Calabresa acebolada",
+          "price": 38.9,
+          "photo": "fotos/calabresa-acebolada.webp"
+        }
+      ]
+    },
+    {
+      "id": "lanches",
+      "name": "Lanches",
+      "items": [
+        {
+          "name": "Taberna Big Especial",
+          "price": 33.9,
+          "description": "2 hambúrgueres, bacon, ovo, milho, carne, alface, tomate, presunto, muçarela e batata palha (contra filé, frango ou pernil)",
+          "image": "lanche-taberna-snooker-bar-uberlandia.webp",
+          "alt": "Lanche do Taberna Snooker Bar no pão com carne, alface, tomate e batata palha",
+          "tone": "pink",
+          "photo": "fotos/taberna-big-especial.webp"
+        },
+        {
+          "name": "X Taberna Especial",
+          "price": 26.9,
+          "description": "2 hambúrgueres, bacon, ovo, milho, cebola, alface, tomate, presunto, muçarela e batata palha",
+          "photo": "fotos/x-taberna-especial.webp"
+        },
+        {
+          "name": "X Taberna Vaca",
+          "price": 25.9,
+          "description": "Contra filé, ovo, batata palha, muçarela, presunto, alface e tomate"
+        },
+        {
+          "name": "X Taberna Egg",
+          "price": 21.9,
+          "description": "2 hambúrgueres, ovo, batata palha, muçarela, presunto, alface e tomate"
+        },
+        {
+          "name": "X Taberna Porco",
+          "price": 19.9,
+          "description": "Pernil, ovo, batata palha, muçarela, presunto, alface e tomate"
+        },
+        {
+          "name": "X Taberna Bacon",
+          "price": 19.9,
+          "description": "Bacon, 1 hambúrguer, ovo, muçarela, presunto, alface, tomate e milho"
+        },
+        {
+          "name": "X Taberna Frango",
+          "price": 17.9,
+          "description": "Filé de frango, ovo, batata palha, muçarela, presunto, alface e tomate"
+        },
+        {
+          "name": "X Taberna Salada",
+          "price": 17.9,
+          "description": "1 hambúrguer, muçarela, presunto, alface, tomate, milho e batata palha"
+        },
+        {
+          "name": "X Taberna Paulista",
+          "price": 17.9,
+          "description": "1 hambúrguer, muçarela, presunto, alface e tomate"
+        }
+      ]
+    },
+    {
+      "id": "cervejas",
+      "name": "Cervejas",
+      "groups": [
+        {
+          "name": "600 ml",
+          "items": [
+            {
+              "name": "Crystal",
+              "price": 9
+            },
+            {
+              "name": "Petra",
+              "price": 11
+            },
+            {
+              "name": "Brahma",
+              "price": 12
+            },
+            {
+              "name": "Skol",
+              "price": 12
+            },
+            {
+              "name": "Antarctica Boa",
+              "price": 12
+            },
+            {
+              "name": "Original",
+              "price": 14
+            },
+            {
+              "name": "Budweiser",
+              "price": 14
+            },
+            {
+              "name": "Heineken",
+              "price": 17
+            },
+            {
+              "name": "Corona",
+              "price": 17
+            }
+          ]
+        },
+        {
+          "name": "Lata",
+          "items": [
+            {
+              "name": "Crystal",
+              "price": 5
+            },
+            {
+              "name": "Devassa e Petra",
+              "price": 5
+            },
+            {
+              "name": "Kaiser",
+              "price": 5
+            },
+            {
+              "name": "Brahma e Skol",
+              "price": 6
+            },
+            {
+              "name": "Amstel e Boa",
+              "price": 6
+            },
+            {
+              "name": "Original",
+              "price": 6.5
+            }
+          ]
+        },
+        {
+          "name": "Long neck",
+          "items": [
+            {
+              "name": "Eisenbahn",
+              "price": 7
+            },
+            {
+              "name": "Heineken shot",
+              "price": 7
+            },
+            {
+              "name": "Budweiser",
+              "price": 7.5
+            },
+            {
+              "name": "Corona",
+              "price": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": "Drinks, doses e whisky",
+      "groups": [
+        {
+          "name": "Drinks",
+          "items": [
+            {
+              "name": "Caipirinha",
+              "price": 15
+            },
+            {
+              "name": "Copão gin",
+              "price": 15
+            },
+            {
+              "name": "Copão White Horse",
+              "price": 20
+            },
+            {
+              "name": "Copão Red Label",
+              "price": 25
+            },
+            {
+              "name": "Copão Black Label",
+              "price": 30
+            }
+          ]
+        },
+        {
+          "name": "Doses",
+          "items": [
+            {
+              "name": "Cachaça",
+              "price": 4
+            },
+            {
+              "name": "Domus",
+              "price": 5
+            },
+            {
+              "name": "Orloff",
+              "price": 7
+            },
+            {
+              "name": "Montilla",
+              "price": 8
+            },
+            {
+              "name": "Smirnoff",
+              "price": 8
+            },
+            {
+              "name": "Campari",
+              "price": 14
+            },
+            {
+              "name": "Absolut",
+              "price": 15
+            }
+          ]
+        },
+        {
+          "name": "Whisky (dose)",
+          "items": [
+            {
+              "name": "Passport",
+              "price": 10
+            },
+            {
+              "name": "White Horse",
+              "price": 13
+            },
+            {
+              "name": "Red Label",
+              "price": 15
+            },
+            {
+              "name": "Ballantine's",
+              "price": 15
+            },
+            {
+              "name": "Chivas",
+              "price": 18
+            },
+            {
+              "name": "Jack Daniel's",
+              "price": 18
+            },
+            {
+              "name": "Black Label",
+              "price": 20
+            },
+            {
+              "name": "Buchanan's",
+              "price": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sem-alcool",
+      "name": "Sem álcool",
+      "groups": [
+        {
+          "name": "Refrigerantes",
+          "items": [
+            {
+              "name": "Refrigerante lata",
+              "price": 6
+            },
+            {
+              "name": "Refrigerante 1 L",
+              "price": 8
+            },
+            {
+              "name": "Sprite 2 L",
+              "price": 12
+            },
+            {
+              "name": "Fanta 2 L",
+              "price": 12
+            },
+            {
+              "name": "Coca-Cola 2 L",
+              "price": 14
+            }
+          ]
+        },
+        {
+          "name": "Sucos Del Valle",
+          "items": [
+            {
+              "name": "CDB",
+              "price": 3
+            },
+            {
+              "name": "Lata, vários sabores",
+              "price": 7
+            },
+            {
+              "name": "Litro, vários sabores",
+              "price": 10
+            }
+          ]
+        },
+        {
+          "name": "Energéticos",
+          "items": [
+            {
+              "name": "Red Bull",
+              "price": 12
+            },
+            {
+              "name": "Monster",
+              "price": 12
+            },
+            {
+              "name": "Extra Power",
+              "price": 12
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

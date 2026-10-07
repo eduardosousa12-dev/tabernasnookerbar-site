@@ -1,0 +1,27 @@
+{
+  "name": "taberna-snooker-bar-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page do Taberna Snooker Bar (Uberlândia/MG): HTML, CSS e JS sem framework.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node scripts/serve.mjs --watch",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs",
+    "test": "node --test \"tests/*.test.mjs\"",
+    "check": "node scripts/build.mjs && node scripts/check.mjs && node --test \"tests/*.test.mjs\"",
+    "lint": "eslint . && stylelint \"src/css/**/*.css\"",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.12.0",
+    "eslint": "^9.12.0",
+    "globals": "^15.11.0",
+    "prettier": "^3.3.3",
+    "stylelint": "^16.9.0",
+    "stylelint-config-standard": "^36.0.1"
+  }
+}

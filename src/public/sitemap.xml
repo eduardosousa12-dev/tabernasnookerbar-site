@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>{{site.url}}/</loc>
+    <lastmod>{{today}}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>{{site.url}}/assets/img/og-taberna-snooker-bar-uberlandia.jpg</image:loc>
+    </image:image>
+    <video:video>
+      <video:thumbnail_loc>{{site.url}}/assets/img/poster-taberna-snooker-bar-ambiente.webp</video:thumbnail_loc>
+      <video:title>{{site.video.name}}</video:title>
+      <video:description>{{site.video.description}}</video:description>
+      <video:content_loc>{{site.url}}/assets/video/taberna-snooker-bar-uberlandia.mp4</video:content_loc>
+    </video:video>
+  </url>
+</urlset>

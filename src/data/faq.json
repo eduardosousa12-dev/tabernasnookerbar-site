@@ -1,0 +1,33 @@
+{
+  "$comment": "Perguntas frequentes. Geram o accordion da seção Como chegar E o JSON-LD FAQPage. A resposta aceita HTML simples (links); o JSON-LD recebe a versão sem tags. {{whatsapp:chave|texto}} vira link de WhatsApp com a mensagem de site.config.json.",
+  "items": [
+    {
+      "question": "Quanto custa jogar sinuca?",
+      "answer": "A ficha custa R$ 3,00."
+    },
+    {
+      "question": "Preciso reservar mesa?",
+      "answer": "Se for com um grupo grande, {{whatsapp:default|chama no WhatsApp}} antes pra saber se tem mesa livre."
+    },
+    {
+      "question": "Quais jogos passam hoje?",
+      "answer": "Os jogos do dia saem nos <a href=\"https://www.instagram.com/stories/tabernasnookerbar/\" target=\"_blank\" rel=\"noopener\">stories do Instagram</a>. Se preferir, {{whatsapp:games|pergunta no WhatsApp}}."
+    },
+    {
+      "question": "Pode levar criança?",
+      "answer": "Pode. O ambiente é familiar."
+    },
+    {
+      "question": "Tem estacionamento?",
+      "answer": "Tem."
+    },
+    {
+      "question": "Vocês fazem torneio de sinuca?",
+      "answer": "Às vezes. Quando tem, a gente divulga antes no Instagram."
+    },
+    {
+      "question": "Abre na segunda?",
+      "answer": "Não. Segunda é folga. De terça a domingo a casa abre no fim da tarde."
+    }
+  ]
+}

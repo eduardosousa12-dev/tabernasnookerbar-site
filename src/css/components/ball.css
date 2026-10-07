@@ -1,0 +1,78 @@
+/* ==========================================================================
+   Bola de sinuca — o elemento gráfico recorrente do site
+   A cor vem de --tone, definida pelas classes .tone-* abaixo.
+   ========================================================================== */
+
+.ball {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex: none;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 28%, rgb(255 255 255 / 75%) 0 8%, transparent 26%),
+    radial-gradient(
+      circle at 50% 50%,
+      var(--tone) 55%,
+      color-mix(in srgb, var(--tone) 60%, #000) 100%
+    );
+}
+
+/* ---- Tons: uma classe por bola. Aplicar no elemento ou num ancestral. ---- */
+:root,
+.tone-red {
+  --tone: var(--ball-red);
+}
+
+.tone-yellow {
+  --tone: var(--ball-yellow);
+}
+
+.tone-green {
+  --tone: var(--ball-green);
+}
+
+.tone-brown {
+  --tone: var(--ball-brown);
+}
+
+.tone-blue {
+  --tone: var(--ball-blue);
+}
+
+.tone-pink {
+  --tone: var(--ball-pink);
+}
+
+.tone-black {
+  --tone: var(--ball-black);
+}
+
+.tone-white {
+  --tone: #fff;
+}
+
+/* ---- Eyebrow: rótulo pequeno acima dos títulos, com bolinha ---- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  color: var(--muted);
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 50%;
+  background: var(--tone);
+  box-shadow: inset -2px -2px 3px rgb(0 0 0 / 35%);
+}
+
+.eyebrow--on-accent {
+  color: rgb(255 255 255 / 85%);
+}

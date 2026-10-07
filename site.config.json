@@ -1,0 +1,89 @@
+{
+  "$comment": "Dados do negócio usados em todo o site (HTML, SEO, JSON-LD e JS). Edite aqui e rode `npm run build`.",
+  "url": "https://tabernasnookerbar.netlify.app",
+  "name": "Taberna Snooker Bar",
+  "slogan": "Sinuca & Futebol",
+  "tagline": "Bom petisco, boa sinuca e amigos de verdade.",
+  "description": "Bar com sinuca e futebol no Granada, em Uberlândia/MG: 6 mesas de sinuca, 4 TVs, porções, lanches e bebidas. Há 19 anos.",
+  "cnpj": "14.227.815/0001-12",
+  "phone": {
+    "e164": "+55-34-99891-2704",
+    "display": "(34) 99891-2704"
+  },
+  "whatsapp": {
+    "number": "5534998912704",
+    "messages": {
+      "default": "Oi, Taberna! Vi o site e quero ir hoje. Tem mesa de sinuca livre?",
+      "menu": "Oi, Taberna! Vi o cardápio no site e quero fazer um pedido.",
+      "games": "Oi, Taberna! Quais jogos vão passar hoje?"
+    }
+  },
+  "instagram": "https://www.instagram.com/tabernasnookerbar/",
+  "address": {
+    "street": "Avenida Abadio Bonifácio da Silva, 242",
+    "district": "Granada",
+    "city": "Uberlândia",
+    "state": "MG",
+    "postalCode": "38410-076",
+    "country": "BR"
+  },
+  "hours": {
+    "$comment": "Horário do cardápio impresso (out/2026). days: 0 = domingo ... 6 = sábado. closes <= opens = fecha depois da meia-noite; 0 = meia-noite.",
+    "timezone": "America/Sao_Paulo",
+    "schedule": [
+      {
+        "days": [
+          2,
+          3,
+          4
+        ],
+        "opens": 17,
+        "closes": 1
+      },
+      {
+        "days": [
+          5,
+          6
+        ],
+        "opens": 18,
+        "closes": 3
+      },
+      {
+        "days": [
+          0
+        ],
+        "opens": 16,
+        "closes": 0
+      }
+    ]
+  },
+  "video": {
+    "name": "Taberna Snooker Bar: sinuca, futebol, porções e lanches em Uberlândia",
+    "description": "Vídeo real do Taberna Snooker Bar com o salão cheio, mesas de sinuca, telão do futebol e porções.",
+    "uploadDate": "2026-10-02",
+    "duration": "PT1M7S"
+  },
+  "pool": {
+    "$comment": "Preço da ficha da mesa de sinuca, em reais.",
+    "tokenPrice": 3.0
+  },
+  "payments": [
+    "Pix",
+    "Visa",
+    "Mastercard",
+    "Elo"
+  ],
+  "amenities": [
+    "Estacionamento",
+    "Wi-Fi",
+    "Pode levar criança",
+    "Todos os jogos do seu time em HD"
+  ],
+  "googleRating": {
+    "$comment": "Nota do Google (fonte: ranklevel.com.br, que replica o Google: 4,5 · 453 avaliações em out/2026). countLabel é arredondado para baixo para continuar verdadeiro. value null esconde o selo.",
+    "value": 4.5,
+    "countLabel": "mais de 450 avaliações",
+    "url": "https://www.google.com/maps/search/?api=1&query=Taberna+Snooker+Bar+Uberl%C3%A2ndia"
+  },
+  "instagramStories": "https://www.instagram.com/stories/tabernasnookerbar/"
+}
